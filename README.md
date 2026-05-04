@@ -4,8 +4,13 @@ An AI-powered teaching assistant that answers questions from video lecture trans
 
 This project allows users to ask questions like:
 
-* *“What is Python?”*
-* *“Where are loops taught?”*
+* What is Python?
+* What is Python list?
+* In which lecture are loops taught?
+* Explain functions in Python
+* Where is OOP explained?
+* What is recursion in Python?
+
 
 …and get answers along with **relevant lecture sources**.
 
