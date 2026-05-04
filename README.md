@@ -182,5 +182,3 @@ Built to explore:
 * Full-stack AI applications
 
 ---
-
-⭐ If you like this project, consider giving it a star!
