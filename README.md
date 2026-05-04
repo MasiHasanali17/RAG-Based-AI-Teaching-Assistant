@@ -2,7 +2,13 @@
 
 An AI-powered teaching assistant that answers questions from video lecture transcripts using **Retrieval-Augmented Generation (RAG)** and a **local LLM (Ollama)**.
 
-This project allows users to ask questions like:
+This system allows users to query course content naturally and receive **accurate, context-aware answers along with source references**.
+
+---
+
+## 💡 Sample Questions
+
+You can try asking:
 
 * What is Python?
 * What is Python list?
@@ -11,19 +17,16 @@ This project allows users to ask questions like:
 * Where is OOP explained?
 * What is recursion in Python?
 
-
-…and get answers along with **relevant lecture sources**.
-
 ---
 
 ## 🧠 Features
 
-* 💬 Chat-based UI (like ChatGPT)
-* 🔍 Semantic search using embeddings
+* 💬 Chat-based UI (similar to ChatGPT)
+* 🔍 Semantic search using vector embeddings
 * 📚 Answers grounded in lecture transcripts
-* 📌 Shows source lectures for answers
+* 📌 Displays source lectures for transparency
 * ⚡ Fast retrieval using precomputed embeddings
-* 🖥️ Fully runs locally (no API key required)
+* 🖥️ Fully local setup (no API key required)
 
 ---
 
@@ -46,7 +49,7 @@ This project allows users to ask questions like:
 
 * Pandas
 * NumPy
-* Joblib (saving embeddings)
+* Joblib
 
 ### 🔹 Frontend
 
@@ -60,41 +63,36 @@ This project allows users to ask questions like:
 
 ### 1. 🎥 Video Processing
 
-* Videos are converted into audio (`process_video.py`)
-* Audio is transcribed into text chunks
+* Videos → audio (`process_video.py`)
+* Audio → transcript chunks
 
 ### 2. ✂️ Chunking
 
-* Transcripts are split into smaller chunks (`create_chunks.py`)
-* Optimized chunks are generated (`optimized_chunks.py`)
+* Split transcripts (`create_chunks.py`)
+* Optimize chunks (`optimized_chunks.py`)
 
 ### 3. 🧠 Embedding Creation
 
-* Each chunk is converted into vector embeddings using **BGE-M3**
-* Stored using:
+* Convert chunks → embeddings (BGE-M3)
+* Save using:
 
   * `batch_embeddings.py`
   * `save_embeddings.py`
-* Final data saved as:
-
-  ```text
-  embeddings.joblib
-  ```
 
 ### 4. 🔍 Retrieval (RAG)
 
-* User question → converted into embedding
-* Cosine similarity is used to find top relevant chunks
+* Convert user query → embedding
+* Find top relevant chunks using cosine similarity
 
 ### 5. 🤖 Generation
 
-* Retrieved chunks + user query → sent to LLM (LLaMA 3.2)
-* LLM generates final answer using context
+* Send retrieved chunks + query → LLaMA 3.2
+* Generate final answer
 
 ### 6. 🌐 UI Interaction
 
-* User interacts via web UI (`index.html`)
-* Backend (`app.py`) processes request and returns answer
+* User asks question via `index.html`
+* Backend (`app.py`) processes and returns response
 
 ---
 
@@ -103,108 +101,86 @@ This project allows users to ask questions like:
 ```text
 RAG-Based-AI-Teaching-Assistant/
 │
-├── app.py                 # Flask backend (main API)
-├── index.html             # Frontend UI
-├── embeddings.joblib      # Precomputed embeddings
+├── app.py
+├── index.html
+├── embeddings.joblib
 │
-├── batch_embeddings.py    # Generate embeddings
-├── save_embeddings.py     # Save embeddings
-├── create_chunks.py       # Create chunks from transcripts
-├── optimized_chunks.py    # Improve chunk quality
-├── process_video.py       # Convert video to audio
+├── batch_embeddings.py
+├── save_embeddings.py
+├── create_chunks.py
+├── optimized_chunks.py
+├── process_video.py
 │
-├── requirements.txt       # Dependencies
-├── README.md              # Project documentation
+├── requirements.txt
+├── README.md
 ```
 
 ---
 
 ## ▶️ How to Run the Project
 
-### 1. 🔧 Install Dependencies
+### 1. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
+### 2. Install Ollama
 
-### 2. 🤖 Install and Run Ollama
-
-Download Ollama from:
 👉 https://ollama.com
-
-Run:
 
 ```bash
 ollama pull llama3.2
 ollama pull bge-m3
 ```
 
----
-
-### 3. ▶️ Start Backend Server
+### 3. Run backend
 
 ```bash
 python app.py
 ```
 
-You should see:
+### 4. Run frontend
 
-```text
-Running on http://127.0.0.1:5000
-```
+* Open `index.html`
+* OR use Live Server
 
----
-
-### 4. 🌐 Run Frontend
-
-* Open `index.html` in browser
-  OR
-* Use Live Server (VS Code)
-
----
-
-### 5. 💬 Ask Questions
-
-Example:
-
-* What is Python?
-* Where are loops taught?
+### 5. Ask questions 🎯
 
 ---
 
 ## ⚠️ Notes
 
-* Ensure Ollama is running locally
-* Embeddings must be generated before running app
-* No API key required (fully local setup)
+* Ollama must be running locally
+* Embeddings must exist before running app
+* Fully offline system (no API usage)
 
 ---
 
 ## 🚀 Future Improvements
 
 * Better transcript cleaning
-* Improved prompt engineering
-* Chat history memory
-* Deployment (cloud)
-* Clickable timestamps for lectures
+* Stronger prompt engineering
+* Chat history support
+* Deployment (Streamlit / cloud)
+* Clickable timestamps
 
 ---
 
 ## 📌 Project Type
 
-This is a **Retrieval-Augmented Generation (RAG)** based AI system designed for educational use.
+**Retrieval-Augmented Generation (RAG) System for Education**
 
 ---
 
 ## 🙌 Author
 
-Built as part of an AI learning project to understand:
+Built to explore:
 
 * RAG systems
-* LLM integration
-* Full-stack AI application development
+* Local LLM integration
+* Full-stack AI applications
 
 ---
 
+⭐ If you like this project, consider giving it a star!
